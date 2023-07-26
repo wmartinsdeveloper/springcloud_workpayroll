@@ -1,4 +1,4 @@
-# Projeto de aprendizado do Spring Cloud
+# Projeto Java com Spring Cloud
 
 ## Arquitetura do projeto
 
@@ -8,7 +8,9 @@
 ## Componentes utilizadas
 
 ### 1 - API Gateway Zuul
-		1.1 - O API Gateway é uma ferramenta de gerenciamento de APIS, capaz de direcionar chamados e controlar o volume do tráfego de dados com eficiência.
+		1.1 - O API Gateway é uma ferramenta de gerenciamento de APIS, capaz de direcionar 
+		chamados e controlar o volume do tráfego de dados com eficiência.
 
 ### 2 - Service Discovery - Eureka
-	2.1 - O Eureka é um servidor que pode ser configurado e implantado para ter alta disponibilidade, com cada servidor replicando estado sobre os serviços registrados para os demais servidores.
+	2.1 - O Eureka é um servidor que pode ser configurado e implantado para ter alta disponibilidade,
+	com cada servidor replicando estado sobre os serviços registrados para os demais servidores.
