@@ -16,7 +16,7 @@ public class Payment implements Serializable{
 	public Payment(String name, Double dailyIncome, Integer day) {
 		this.name = name;
 		this.dailyIncome = dailyIncome;
-		Day = day;
+		this.Day = day;
 	}
 
 	public String getName() {
