@@ -1,4 +1,4 @@
-# Projeto Java com Spring Cloud
+# Projeto Java com Spring Cloud - Version 2.3.4
 
 ## Arquitetura do Projeto
 
@@ -23,7 +23,7 @@
 	Utilizado para possibilitar a comunicação do entre os microserviços 
    
 ### 4 - Ribbon load balacing
-	Responsásvel em balancear as requisições entre diversas instancias do mesmo microserviços
+	Responsável em balancear as requisições entre diversas instancias do mesmo microserviços
    
 ### 5 - Microserviços
 
