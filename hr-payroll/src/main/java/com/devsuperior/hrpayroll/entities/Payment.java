@@ -13,7 +13,6 @@ public class Payment implements Serializable {
 	}
 
 	public Payment(String name, Double dailyIncome, Integer days) {
-		super();
 		this.name = name;
 		this.dailyIncome = dailyIncome;
 		this.days = days;

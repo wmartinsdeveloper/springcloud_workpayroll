@@ -25,7 +25,10 @@
 ### 4 - Ribbon load balacing
 	Responsável em balancear as requisições entre diversas instancias do mesmo microserviços
    
-### 5 - Microserviços
+### 5 - Hystrix para High Availability
+	Responsável em balancear as requisições entre diversas instancias do mesmo microserviços   
+   
+### 6 - Microserviços
 
 #### Worker
 	Manter o cadastro dos trabalhadores com multiplas instâncias promovendo a escalabilidade.
