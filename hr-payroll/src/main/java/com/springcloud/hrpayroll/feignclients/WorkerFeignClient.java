@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import com.springcloud.hrpayroll.entities.Worker;
 
 @Component
-@FeignClient(name = "hr-worker", url="localhost:8001", path = "/worker")
+@FeignClient(name = "hr-worker", path = "/worker")
 public interface WorkerFeignClient {
 
 	@GetMapping(value = "/{id}")

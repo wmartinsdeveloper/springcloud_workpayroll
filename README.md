@@ -22,7 +22,10 @@
 ### 3 - Spring Cloud Feign
 	Utilizado para possibilitar a comunicação do entre os microserviços 
    
-### 4 - Microserviços
+### 4 - Ribbon load balacing
+	Responsásvel em balancear as requisições entre diversas instancias do mesmo microserviços
+   
+### 5 - Microserviços
 
 #### Worker
 	Manter o cadastro dos trabalhadores com multiplas instâncias promovendo a escalabilidade.
