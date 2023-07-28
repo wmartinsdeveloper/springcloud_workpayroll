@@ -16,8 +16,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "tb_users")
-public class users implements Serializable {
+@Table(name = "tb_user")
+public class Users implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
@@ -30,17 +30,17 @@ public class users implements Serializable {
 	private String password;
 	
 	@ManyToMany(fetch = FetchType.EAGER)
-	@JoinTable(name="rb_user_role",
-			joinColumns = @JoinColumn(name = "user_ir"),
+	@JoinTable(name="tb_user_role",
+			joinColumns = @JoinColumn(name = "user_id"),
 			inverseJoinColumns = @JoinColumn(name = "role_id")			
 			)
 	private Set<Role> roles = new HashSet<>();
 	
 	
-	public users() {
+	public Users() {
 	}
 
-	public users(String name, String email, String password) {
+	public Users(String name, String email, String password) {
 		this.name = name;
 		this.email = email;
 		this.password = password;
@@ -90,7 +90,7 @@ public class users implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		users other = (users) obj;
+		Users other = (Users) obj;
 		return Objects.equals(roles, other.roles);
 	}
 
