@@ -1,4 +1,4 @@
-package com.devsuperior.hrworker.entities;
+package com.springcloud.hrworker.entities;
 
 import java.io.Serializable;
 
