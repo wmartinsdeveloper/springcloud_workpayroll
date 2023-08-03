@@ -32,7 +32,10 @@ build/
 ### VS Code ###
 .vscode/
 
+### Eclipse ###
 
+.metadata
 
+### Mac ###
 
-docs
+.DS_Store
