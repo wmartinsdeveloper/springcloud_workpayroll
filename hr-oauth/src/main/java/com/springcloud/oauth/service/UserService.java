@@ -8,22 +8,30 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import com.springcloud.oauth.entities.Users;
+import com.springcloud.oauth.entities.User;
 import com.springcloud.oauth.feignclients.UserFeignClient;
 
 @Service
 public class UserService implements UserDetailsService {
 
-	public static Logger logger = LoggerFactory.getLogger(UserService.class);
+	private static Logger logger = LoggerFactory.getLogger(UserService.class);
 	
-
 	@Autowired
 	private UserFeignClient userFeignClient;
 	
-	
+	public User findByEmail(String email) {
+		User user = userFeignClient.findByEmail(email).getBody();
+		if (user == null) {
+			logger.error("Email not found: " + email);
+			throw new IllegalArgumentException("Email not found");
+		}
+		logger.info("Email found: " + email);
+		return user;
+	}
+
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		Users user = userFeignClient.findByEmail(username).getBody();
+		User user = userFeignClient.findByEmail(username).getBody();
 		if (user == null) {
 			logger.error("Email not found: " + username);
 			throw new UsernameNotFoundException("Email not found");

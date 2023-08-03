@@ -1,19 +1,19 @@
 package com.springcloud.oauth.entities;
 
 import java.io.Serializable;
-import java.util.Objects;
 
-
-public class Role implements Serializable{
-	
+public class Role implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	private Long id;	
-	private String roleName;	
-	public Role() {}
+	private Long id;
+	private String roleName;
+	
+	public Role() {
+	}
 
-	public Role(String roleName) {
+	public Role(Long id, String roleName) {
 		super();
+		this.id = id;
 		this.roleName = roleName;
 	}
 
@@ -31,11 +31,14 @@ public class Role implements Serializable{
 
 	public void setRoleName(String roleName) {
 		this.roleName = roleName;
-	}	
-	
+	}
+
 	@Override
 	public int hashCode() {
-		return Objects.hash(roleName);
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((roleName == null) ? 0 : roleName.hashCode());
+		return result;
 	}
 
 	@Override
@@ -47,19 +50,11 @@ public class Role implements Serializable{
 		if (getClass() != obj.getClass())
 			return false;
 		Role other = (Role) obj;
-		return Objects.equals(roleName, other.roleName);
+		if (roleName == null) {
+			if (other.roleName != null)
+				return false;
+		} else if (!roleName.equals(other.roleName))
+			return false;
+		return true;
 	}
-
-	@Override
-	public String toString() {
-		return "Role [id=" + id + ", roleName=" + roleName + "]";
-	}
-
-	
-
-	
-	
-	
-	
-	
 }

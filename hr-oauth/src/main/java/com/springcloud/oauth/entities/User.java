@@ -3,7 +3,6 @@ package com.springcloud.oauth.entities;
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.HashSet;
-import java.util.Objects;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -11,24 +10,22 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-
-public class Users implements UserDetails, Serializable {
-
+public class User implements UserDetails, Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private Long id;
-	
 	private String name;
 	private String email;
-	private String password;	
-
+	private String password;
+	
 	private Set<Role> roles = new HashSet<>();
 	
-	
-	public Users() {
+	public User() {
 	}
 
-	public Users(String name, String email, String password) {
+	public User(Long id, String name, String email, String password) {
+		super();
+		this.id = id;
 		this.name = name;
 		this.email = email;
 		this.password = password;
@@ -65,9 +62,17 @@ public class Users implements UserDetails, Serializable {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-
+	
 	public Set<Role> getRoles() {
 		return roles;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		return result;
 	}
 
 	@Override
@@ -78,52 +83,43 @@ public class Users implements UserDetails, Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Users other = (Users) obj;
-		return Objects.equals(roles, other.roles);
-	}
-
-	@Override
-	public String toString() {
-		return "users [id=" + id + ", name=" + name + ", email=" + email + ", password=" + password + "]";
+		User other = (User) obj;
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
+			return false;
+		return true;
 	}
 
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
-		// TODO Auto-generated method stub
 		return roles.stream().map(x -> new SimpleGrantedAuthority(x.getRoleName()))
 				.collect(Collectors.toList());
 	}
 
 	@Override
 	public String getUsername() {
-		// TODO Auto-generated method stub
 		return email;
 	}
 
 	@Override
 	public boolean isAccountNonExpired() {
-		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 	@Override
 	public boolean isAccountNonLocked() {
-		// TODO Auto-generated method stub
 		return true;
 	}
 
 	@Override
 	public boolean isCredentialsNonExpired() {
-		// TODO Auto-generated method stub
 		return true;
 	}
 
 	@Override
 	public boolean isEnabled() {
-		// TODO Auto-generated method stub
 		return true;
 	}
-
-	
-	
 }
