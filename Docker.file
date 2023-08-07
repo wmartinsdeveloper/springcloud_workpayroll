@@ -1,0 +1,6 @@
+
+docker run --name hr-worker-mysql -p 3307:3306 --network hr-net -e MYSQL_ROOT_PASSWORD=1234567 -e MYSQL_USER=spring_dev -e MYSQL_PASSWORD=1234567 -e MYSQL_DATABASE=spring_dev -d mysql:8.1.0
+
+docker run --name hr-user-mysql -p 3308:3306 --network hr-net -e MYSQL_ROOT_PASSWORD=1234567 -e MYSQL_USER=spring_dev -e MYSQL_PASSWORD=1234567 -e MYSQL_DATABASE=spring_dev -d mysql:8.1.0
+
+
